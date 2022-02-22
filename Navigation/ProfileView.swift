@@ -5,6 +5,8 @@
 //  Created by Юлия Полевщикова on 10.02.2022.
 //
 
+import Foundation
+
 import UIKit
 
 class ProfileView: UIView {
@@ -19,24 +21,22 @@ class ProfileView: UIView {
             self.setupView()
         }
         
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            self.setupView()
-        }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.setupView()
+    }
         
         private func setupView() {
             let view = self.loadViewFromXib()
-            view.frame = self.bounds // здесь view, загруженная из xib-файла, добавляется на вьюху класса. Ее размер соответствует размеру вьюхе класса и растягивается так же, как и сама вьюха класса.
+            view.frame = self.bounds 
             
             view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.addSubview(view)
         }
         
         private func loadViewFromXib() -> UIView {
-            guard let view = Bundle.main.loadNibNamed("ProfileView", owner: nil, options: nil)?.first as? UIView else { return UIView() }
+            guard let view = Bundle.main.loadNibNamed("ProfileView", owner: self, options: nil)?.first as? UIView else { return UIView() }
             
             return view
         }
-
 }
-

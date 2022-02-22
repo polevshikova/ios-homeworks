@@ -103,13 +103,13 @@
 				8B83E3E827B54245006632E1 /* SceneDelegate.swift */,
 				8B83E3EA27B54245006632E1 /* ViewController.swift */,
 				8B83E3EC27B54245006632E1 /* Main.storyboard */,
-				8B83E3EF27B54249006632E1 /* Assets.xcassets */,
 				8B83E3F127B54249006632E1 /* LaunchScreen.storyboard */,
-				8B83E3F427B54249006632E1 /* Info.plist */,
 				8B83E41827B545C4006632E1 /* ProfileView.xib */,
 				8B83E41A27B5467D006632E1 /* ProfileView.swift */,
 				8B83E41C27B54834006632E1 /* Profile.storyboard */,
 				8B83E41E27B54851006632E1 /* ProfileViewController.swift */,
+				8B83E3EF27B54249006632E1 /* Assets.xcassets */,
+				8B83E3F427B54249006632E1 /* Info.plist */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
