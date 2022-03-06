@@ -17,7 +17,7 @@ class PostViewController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = myPost.title
         title = titleLabel.text
-        navigationItem.backButtonTitle = "Назад"
+        navigationItem.backButtonTitle = "назад"
         let infoImage = UIImage(named: "info")
         let infoButton = UIBarButtonItem(image: infoImage, style: .plain, target: self, action: #selector(buttonInfoClicked))
         navigationItem.rightBarButtonItem = infoButton
