@@ -21,10 +21,10 @@ final class ProfileViewController: UIViewController {
         let button = UIButton()
         button.setTitle("кнопка", for: .normal)
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 4
+        button.layer.cornerRadius = 5
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
+        button.layer.shadowOffset = CGSize(width: 5, height: 5)
+        button.layer.shadowRadius = 5
         button.layer.shadowOpacity = 0.7
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -40,7 +40,7 @@ final class ProfileViewController: UIViewController {
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.title = "Профиль"
+        self.navigationItem.title = "профиль"
     }
     
     private func setupView() {
