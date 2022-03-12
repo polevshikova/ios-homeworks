@@ -86,32 +86,24 @@ final class LogInViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc func buttonPressed(_ sender: UIButton) {
+
+        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.configureSubviews()
         self.setupConstraints()
-        self.navigationController?.navigationBar.isHidden = true
+        self.hidingKeyboard()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        nc.addObserver(self, selector: #selector(kbdHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        addTapGestureToHideKeyboard()
+    
+    func hidingKeyboard(){
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        let nc = NotificationCenter.default
-        nc.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        nc.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-
 
     private func configureSubviews() {
         self.view.addSubview(self.scrollView)
@@ -164,6 +156,23 @@ final class LogInViewController: UIViewController {
             heightLogInButtonConstraint
         ])
     }
+    
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationController?.navigationBar.isHidden = true
+            let nc = NotificationCenter.default
+            nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            nc.addObserver(self, selector: #selector(kbdHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+            addTapGestureToHideKeyboard()
+        }
+    
+        override func viewDidDisappear(_ animated: Bool) {
+            super.viewDidDisappear(animated)
+            navigationController?.setNavigationBarHidden(false, animated: animated)
+            let nc = NotificationCenter.default
+            nc.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+            nc.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
 
     @objc func buttonClicked() {
         let profileViewController = ProfileViewController()
