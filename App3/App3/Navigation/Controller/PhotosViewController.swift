@@ -31,10 +31,26 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
 
-    private var collectionDataSource : [CollectionViewModel] = [CollectionViewModel(image: "1"),
-                                                                CollectionViewModel(image: "2"),
-                                                                CollectionViewModel(image: "3"),
-                                                                CollectionViewModel(image: "4")]
+    private var collectionDataSource : [CollectionViewModel] = [CollectionViewModel(image: "1.jpeg"),
+                                                                CollectionViewModel(image: "2.jpeg"),
+                                                                CollectionViewModel(image: "3.jpeg"),
+                                                                CollectionViewModel(image: "4.jpeg"),
+                                                                CollectionViewModel(image: "5.jpeg"),
+                                                                CollectionViewModel(image: "6.jpeg"),
+                                                                CollectionViewModel(image: "7.jpeg"),
+                                                                CollectionViewModel(image: "8.jpeg"),
+                                                                CollectionViewModel(image: "9.jpeg"),
+                                                                CollectionViewModel(image: "10.jpeg"),
+                                                                CollectionViewModel(image: "11.jpeg"),
+                                                                CollectionViewModel(image: "12.jpeg"),
+                                                                CollectionViewModel(image: "13.jpeg"),
+                                                                CollectionViewModel(image: "14.jpeg"),
+                                                                CollectionViewModel(image: "15.jpeg"),
+                                                                CollectionViewModel(image: "16.jpeg"),
+                                                                CollectionViewModel(image: "17.jpeg"),
+                                                                CollectionViewModel(image: "18.jpeg"),
+                                                                CollectionViewModel(image: "19.jpeg"),
+                                                                CollectionViewModel(image: "20.jpeg")]
 
     override func viewDidLoad() {
         super.viewDidLoad()

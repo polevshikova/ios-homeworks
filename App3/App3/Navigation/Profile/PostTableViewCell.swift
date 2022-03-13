@@ -114,9 +114,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     private func setupView() {
-        //view background
         self.contentView.backgroundColor = .white
-
         self.contentView.addSubview(self.backView)
         self.backView.addSubview(self.stackView)
         self.stackView.addArrangedSubview(self.authorLabel)
