@@ -14,7 +14,7 @@ protocol ProfileHeaderViewProtocol: AnyObject {
 final class ProfileHeaderView: UIView {
 
     private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Photo.png"))
+        let imageView = UIImageView(image: UIImage(named: "photo.jpeg"))
         imageView.layer.cornerRadius = 75
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 3
