@@ -141,12 +141,12 @@
 			children = (
 				8B4487AD27BF96B300A58B95 /* Delegate */,
 				8B9DEA4827D763E3003DFEC5 /* Models */,
-				8B58982B27ECDCF500C72469 /* TabBar */,
 				8B4487B027BF992F00A58B95 /* Profile */,
 				8B9DEA4227D76167003DFEC5 /* Protocol */,
 				8B4487B127BF993A00A58B95 /* Controller */,
-				8B7135CD27BED03C009AA6B4 /* LaunchScreen.storyboard */,
+				8B58982B27ECDCF500C72469 /* TabBar */,
 				8B7135CB27BED03C009AA6B4 /* Assets.xcassets */,
+				8B7135CD27BED03C009AA6B4 /* LaunchScreen.storyboard */,
 				8B7135D027BED03C009AA6B4 /* Info.plist */,
 			);
 			path = Navigation;
