@@ -8,10 +8,13 @@
 import UIKit
 
 struct CollectionViewModel: Equatable {
+    
     var image:String
 
     init(image: String){
+        
         self.image = image
+        
     }
 }
 
