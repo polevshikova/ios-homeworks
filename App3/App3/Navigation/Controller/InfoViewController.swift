@@ -11,28 +11,26 @@ class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray3
+        view.backgroundColor = .systemGray
         title = "Info"
-        let button = UIButton(frame: CGRect(x: 130, y: 770, width: 150, height: 40))
-        view.addSubview(button)
-        button.setTitle("Show alert", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(alertClicked), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 90).isActive = true
-        button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -90).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        let alertButton = UIButton()
+        alertButton.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(alertButton)
+        alertButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        alertButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        alertButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).isActive = true
+        alertButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        alertButton.backgroundColor = .systemOrange
+        alertButton.layer.cornerRadius = 15
+        alertButton.setTitle("Show Alert", for: .normal)
+        alertButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
 
     }
-    @objc func alertClicked() {
-        let alert = UIAlertController(title: "Attention", message: "Message", preferredStyle: .alert)
-        let okBtn = UIAlertAction(title: "yep", style: .default, handler: nil)
-        let noBtn = UIAlertAction(title: "no", style: .destructive, handler: nil)
-        alert.addAction(okBtn)
-        alert.addAction(noBtn)
-        present(alert, animated: true, completion: nil)
-        print("alert work")
+    @objc func didTapButton(_ sender: UIButton!) {
+        
+        let alertController = UIAlertController(title: "Attention, something information", message: "Something message", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in print("OK button pressed")}))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in print("Cancel button pressed")}))
+        present(alertController, animated: true)
     }
 }

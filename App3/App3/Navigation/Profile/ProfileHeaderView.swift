@@ -7,6 +7,8 @@
 
 import UIKit
 
+import UIKit
+
 protocol ProfileHeaderViewProtocol: AnyObject {
     func didTapShowStatusButton(textFieldIsVisible: Bool, completion: @escaping () -> Void)
 }
@@ -15,58 +17,34 @@ final class ProfileHeaderView: UIView {
     
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Photo"))
-        imageView.layer.cornerRadius = 75
+        imageView.layer.cornerRadius = 80
         imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 3
-        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 4
+        imageView.layer.borderColor = UIColor.black.cgColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var fullNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Юлия"
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.text = "Юля"
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
-        label.text = "Статус"
+        label.text = "статус"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var statusTextView1: UITextView = {
-        let textView = UITextView()
-        textView.backgroundColor = .lightGray
-        textView.font = .systemFont(ofSize: 14)
-        textView.textColor = .gray
-        textView.text = "Статус"
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
-    }()
-    
-    private lazy var setStatusButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Show status", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowOpacity = 0.7
-        button.addTarget(self, action: #selector(self.didTapSetStatusButton), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     private lazy var statusTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Waiting with something..."
+        textField.placeholder = "напишите что-нибудь"
         textField.returnKeyType = .done
         textField.autocapitalizationType = .words
         textField.font = .systemFont(ofSize: 15)
@@ -79,6 +57,30 @@ final class ProfileHeaderView: UIView {
         textField.alpha = 0
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
+    }()
+    
+    private lazy var setStatusButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("показать статус", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.7
+        button.addTarget(self, action: #selector(self.didTapSetStatusButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var statusTextView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = .lightGray
+        textView.font = .systemFont(ofSize: 14)
+        textView.textColor = .gray
+        textView.text = "статус"
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
     }()
     
     private var topSetStatusButtonOn: NSLayoutConstraint?

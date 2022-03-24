@@ -40,26 +40,24 @@ final class ProfileViewController: UIViewController {
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.title = "Профиль"
+        self.navigationItem.title = "профиль"
     }
     
     private func setupView() {
         self.view.backgroundColor = .white
         self.view.addSubview(self.profileHeaderView)
         self.view.addSubview(self.newButton)
-        let topConstraint = self.profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
-        let leadingConstraint = self.profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let trailingConstraint = self.profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        self.heightConstraint = self.profileHeaderView.heightAnchor.constraint(equalToConstant: 245)
-        let bottomNewButtonConstraint = self.newButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
-        let leadingNewButtonConstraint = self.newButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16)
-        let trailingNewButtonConstraint = self.newButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
-        let heightNewButtonConstraint = self.newButton.heightAnchor.constraint(equalToConstant: 50)
+        
         NSLayoutConstraint.activate([
-            topConstraint, leadingConstraint, trailingConstraint, self.heightConstraint,
-            bottomNewButtonConstraint, leadingNewButtonConstraint, trailingNewButtonConstraint,
-            heightNewButtonConstraint
-        ].compactMap({ $0 }))
+            profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
+            newButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            newButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            newButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            newButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
     

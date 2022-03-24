@@ -21,7 +21,7 @@ class FeedViewController: UIViewController {
     
     private lazy var oneButton: UIButton = {
         let button = UIButton()
-        button.setTitle("остаться тут", for: .normal)
+        button.setTitle("пост 1", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
@@ -35,7 +35,7 @@ class FeedViewController: UIViewController {
     
     private lazy var twoButton: UIButton = {
         let button = UIButton()
-        button.setTitle("перейти", for: .normal)
+        button.setTitle("пост 2", for: .normal)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
