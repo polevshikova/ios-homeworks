@@ -9,6 +9,20 @@ import UIKit
 
 class PhotosViewController: UIViewController {
     
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+    
+    private var photoViewCenterXConstraint: NSLayoutConstraint?
+    private var photoViewCenterYConstraint: NSLayoutConstraint?
+    private var photoViewWidthConstraint: NSLayoutConstraint?
+    private var photoViewHeightConstraint: NSLayoutConstraint?
+    private var photoViewTopConstraint: NSLayoutConstraint?
+    private var photoViewBottomConstraint: NSLayoutConstraint?
+    private var photoViewLeadingConstraint: NSLayoutConstraint?
+    private var photoViewTrailingConstraint: NSLayoutConstraint?
+    private var isExpanded = false
+    private let screenWidth = UIScreen.main.bounds.width
+    private let screenHeight = UIScreen.main.bounds.height
+
     private enum Constants {
         static let itemCount: CGFloat = 3
     }
@@ -20,6 +34,7 @@ class PhotosViewController: UIViewController {
         layout.minimumInteritemSpacing = 8
         return layout
     }()
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.layout)
         collectionView.delegate = self
@@ -27,52 +42,47 @@ class PhotosViewController: UIViewController {
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "PhotosCollectionViewCell")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DefaultCollectionCell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         return collectionView
     }()
+    
+    private lazy var photoView: UIView = {
+        var view = UIView()
+        view.isHidden = true
+        view.alpha = 0
+        view.backgroundColor = .red
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var photoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
 
-    private var collectionDataSource : [CollectionViewModel] = [CollectionViewModel(image: "1.jpeg"),
-                                                                CollectionViewModel(image: "2.jpeg"),
-                                                                CollectionViewModel(image: "3.jpeg"),
-                                                                CollectionViewModel(image: "4.jpeg"),
-                                                                CollectionViewModel(image: "5.jpeg"),
-                                                                CollectionViewModel(image: "6.jpeg"),
-                                                                CollectionViewModel(image: "7.jpeg"),
-                                                                CollectionViewModel(image: "8.jpeg"),
-                                                                CollectionViewModel(image: "9.jpeg"),
-                                                                CollectionViewModel(image: "10.jpeg"),
-                                                                CollectionViewModel(image: "11.jpeg"),
-                                                                CollectionViewModel(image: "12.jpeg"),
-                                                                CollectionViewModel(image: "13.jpeg"),
-                                                                CollectionViewModel(image: "14.jpeg"),
-                                                                CollectionViewModel(image: "15.jpeg"),
-                                                                CollectionViewModel(image: "16.jpeg"),
-                                                                CollectionViewModel(image: "17.jpeg"),
-                                                                CollectionViewModel(image: "18.jpeg"),
-                                                                CollectionViewModel(image: "19.jpeg"),
-                                                                CollectionViewModel(image: "20.jpeg")]
+    private var collectionDataSource : [CollectionViewModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dataSourceSetup()
         self.setupView()
-        self.title = "Photo Gallery"
+        self.title = "PhotoGallery"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupView() {
         self.view.addSubview(self.collectionView)
         
-        let topConstraint = self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        let bottomConstraint = self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        let leadingConstraint = self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let trailingConstraint = self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        
         NSLayoutConstraint.activate([
-            topConstraint, bottomConstraint,leadingConstraint, trailingConstraint
+            self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
     
@@ -80,6 +90,18 @@ class PhotosViewController: UIViewController {
         let neededWidth = width - 4 * spacing
         let itemWidth = floor(neededWidth / Constants.itemCount)
         return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+    private func dataSourceSetup() {
+        for n in 1...20 {
+            var name = ""
+            if n / 10 < 1 {
+                name = "\(n)"
+            } else {
+                name = "\(n)"
+            }
+            collectionDataSource.append(CollectionViewModel(image: name))
+        }
     }
 }
 
@@ -94,16 +116,23 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.backgroundColor = .black
             return cell
         }
-        cell.backgroundColor = .systemGray6
+        
+        cell.backgroundColor = .white
         let photos = collectionDataSource[indexPath.row]
         cell.photoGalleryImages.image = UIImage(named: photos.image)
         cell.photoGalleryImages.contentMode = .scaleAspectFill
         return cell
-        
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ZoomPhotoViewController()
+        vc.selectedImage = collectionDataSource[indexPath.row].image
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt: IndexPath) -> CGSize {
         let spacing = ( collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing
         return self.itemSize(for: collectionView.frame.width, with: spacing ?? 0)

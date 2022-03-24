@@ -8,24 +8,22 @@
 import UIKit
 
 class PostViewController: UIViewController {
+    
+    var post: Post!
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .lightGray
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemGray3
-        let myPost = Post()
-        let titleLabel = UILabel()
-        titleLabel.text = myPost.title
-        title = titleLabel.text
-        navigationItem.backButtonTitle = "Назад"
-        let infoImage = UIImage(named: "info")
-        let infoButton = UIBarButtonItem(image: infoImage, style: .plain, target: self, action: #selector(buttonInfoClicked))
-        navigationItem.rightBarButtonItem = infoButton
-    }
         
-    @objc func buttonInfoClicked() {
-        let infoViewController = InfoViewController()
-        navigationController?.pushViewController(infoViewController, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Info", style: .done, target: self, action: #selector(showInfo))
     }
-
+    
+    @objc private func showInfo() {
+        let infoVC = InfoViewController()
+        self.present(infoVC, animated: true)
+    }
 }

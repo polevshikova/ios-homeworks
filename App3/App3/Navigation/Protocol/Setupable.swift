@@ -13,3 +13,10 @@ protocol Setupable {
     func setup(with viewModel: ViewModelProtocol)
 }
 
+protocol ChangeViewsDelegate: AnyObject {
+    func viewsChanged(at indexPath: IndexPath)
+}
+
+protocol ChangeLikesDelegate: AnyObject {
+    func likesChanged()
+}

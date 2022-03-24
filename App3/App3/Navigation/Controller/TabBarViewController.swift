@@ -17,10 +17,10 @@ class MainTabBarController: UITabBarController {
     
     func setupTabBar() {
         
-        let feedViewController = createNavController(vc: FeedViewController(), itemName: "Лента", ItemImage: "house")
+        let feedViewController = createNavController(vc: FeedViewController(), itemName: "Feed", ItemImage: "house")
         
-        let profileViewController = createNavController(vc: LogInViewController(), itemName: "Профиль", ItemImage: "person.crop.rectangle")
-        let gestureViewController = createNavController(vc: GestureViewController(), itemName: "Жесты", ItemImage: "swift")
+        let profileViewController = createNavController(vc: LogInViewController(), itemName: "Profile", ItemImage: "person.crop.rectangle")
+        let gestureViewController = createNavController(vc: GestureViewController(), itemName: "Gesture", ItemImage: "swift")
 
         viewControllers = [feedViewController, profileViewController, gestureViewController]
         
