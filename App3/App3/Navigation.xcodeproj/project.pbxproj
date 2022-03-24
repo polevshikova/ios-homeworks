@@ -105,12 +105,19 @@
 				8B9DEA4F27D765AE003DFEC5 /* PhotosViewController.swift */,
 				8B3036E427ECD37100794513 /* ZoomPhotoViewController.swift */,
 				8B3036D827EB7AB600794513 /* ZoomPostViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B58982B27ECDCF500C72469 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
 				8B9DEA3A27D759C9003DFEC5 /* LogInViewController.swift */,
 				8B4487A627BF947A00A58B95 /* FeedViewController.swift */,
 				8B5BB81127DE333B00D33484 /* GestureViewController.swift */,
 				8B7135D627BED0C3009AA6B4 /* TabBarViewController.swift */,
 			);
-			path = Controller;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		8B7135B627BED038009AA6B4 = {
@@ -132,10 +139,11 @@
 		8B7135C127BED038009AA6B4 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				8B9DEA4727D763DB003DFEC5 /* Core */,
-				8B9DEA4227D76167003DFEC5 /* Protocol */,
 				8B4487AD27BF96B300A58B95 /* Delegate */,
+				8B9DEA4827D763E3003DFEC5 /* Models */,
+				8B58982B27ECDCF500C72469 /* TabBar */,
 				8B4487B027BF992F00A58B95 /* Profile */,
+				8B9DEA4227D76167003DFEC5 /* Protocol */,
 				8B4487B127BF993A00A58B95 /* Controller */,
 				8B7135CD27BED03C009AA6B4 /* LaunchScreen.storyboard */,
 				8B7135CB27BED03C009AA6B4 /* Assets.xcassets */,
@@ -151,14 +159,6 @@
 				8B9DEA4027D7615A003DFEC5 /* Setupable.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		8B9DEA4727D763DB003DFEC5 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				8B9DEA4827D763E3003DFEC5 /* Models */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		8B9DEA4827D763E3003DFEC5 /* Models */ = {
