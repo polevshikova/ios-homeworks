@@ -12,12 +12,12 @@
 		8B3036DF27ECCF4F00794513 /* PostOfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3036DE27ECCF4E00794513 /* PostOfData.swift */; };
 		8B3036E127ECD02900794513 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3036E027ECD02900794513 /* CollectionViewModel.swift */; };
 		8B3036E327ECD13800794513 /* ZoomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3036E227ECD13800794513 /* ZoomPhotoView.swift */; };
-		8B3036E527ECD37100794513 /* ZoomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3036E427ECD37100794513 /* ZoomPhotoViewController.swift */; };
 		8B4487A727BF947A00A58B95 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4487A627BF947A00A58B95 /* FeedViewController.swift */; };
 		8B4487A927BF948700A58B95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4487A827BF948700A58B95 /* ProfileViewController.swift */; };
 		8B4487AB27BF94D200A58B95 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4487AA27BF94D200A58B95 /* PostViewController.swift */; };
 		8B4487AF27BF97AA00A58B95 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4487AE27BF97AA00A58B95 /* InfoViewController.swift */; };
 		8B5BB81227DE333B00D33484 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BB81127DE333B00D33484 /* GestureViewController.swift */; };
+		8B637CBD2801C7F000BFB098 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B637CBC2801C7F000BFB098 /* Extension.swift */; };
 		8B7135C327BED038009AA6B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7135C227BED038009AA6B4 /* AppDelegate.swift */; };
 		8B7135C527BED038009AA6B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7135C427BED038009AA6B4 /* SceneDelegate.swift */; };
 		8B7135CC27BED03C009AA6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7135CB27BED03C009AA6B4 /* Assets.xcassets */; };
@@ -40,12 +40,12 @@
 		8B3036DE27ECCF4E00794513 /* PostOfData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOfData.swift; sourceTree = "<group>"; };
 		8B3036E027ECD02900794513 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		8B3036E227ECD13800794513 /* ZoomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPhotoView.swift; sourceTree = "<group>"; };
-		8B3036E427ECD37100794513 /* ZoomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPhotoViewController.swift; sourceTree = "<group>"; };
 		8B4487A627BF947A00A58B95 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8B4487A827BF948700A58B95 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8B4487AA27BF94D200A58B95 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8B4487AE27BF97AA00A58B95 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		8B5BB81127DE333B00D33484 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
+		8B637CBC2801C7F000BFB098 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8B7135BF27BED038009AA6B4 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7135C227BED038009AA6B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B7135C427BED038009AA6B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 				8B4487AA27BF94D200A58B95 /* PostViewController.swift */,
 				8B4487A827BF948700A58B95 /* ProfileViewController.swift */,
 				8B9DEA4F27D765AE003DFEC5 /* PhotosViewController.swift */,
-				8B3036E427ECD37100794513 /* ZoomPhotoViewController.swift */,
 				8B3036D827EB7AB600794513 /* ZoomPostViewController.swift */,
 			);
 			path = Controller;
@@ -157,6 +156,7 @@
 			children = (
 				8B9DEA3E27D760A3003DFEC5 /* UIColorExtention.swift */,
 				8B9DEA4027D7615A003DFEC5 /* Setupable.swift */,
+				8B637CBC2801C7F000BFB098 /* Extension.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -248,7 +248,6 @@
 				8B4487AB27BF94D200A58B95 /* PostViewController.swift in Sources */,
 				8B7135D727BED0C3009AA6B4 /* TabBarViewController.swift in Sources */,
 				8B9DEA3B27D759C9003DFEC5 /* LogInViewController.swift in Sources */,
-				8B3036E527ECD37100794513 /* ZoomPhotoViewController.swift in Sources */,
 				8B7135C327BED038009AA6B4 /* AppDelegate.swift in Sources */,
 				8B5BB81227DE333B00D33484 /* GestureViewController.swift in Sources */,
 				8B4487AF27BF97AA00A58B95 /* InfoViewController.swift in Sources */,
@@ -257,6 +256,7 @@
 				8B9DEA4C27D76555003DFEC5 /* Post.swift in Sources */,
 				8B4487A927BF948700A58B95 /* ProfileViewController.swift in Sources */,
 				8B9DEA3D27D76054003DFEC5 /* PostTableViewCell.swift in Sources */,
+				8B637CBD2801C7F000BFB098 /* Extension.swift in Sources */,
 				8B3036DF27ECCF4F00794513 /* PostOfData.swift in Sources */,
 				8B9DEA3F27D760A3003DFEC5 /* UIColorExtention.swift in Sources */,
 				8B4487A727BF947A00A58B95 /* FeedViewController.swift in Sources */,
