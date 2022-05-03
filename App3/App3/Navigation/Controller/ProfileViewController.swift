@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController, ChangeLikesDelegate, ChangeViewsD
     
     private lazy var profileHeaderView: ProfileHeaderView = {
         let view = ProfileHeaderView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.toAutoLayout()
         return view
     }()
     
@@ -144,7 +144,7 @@ class ProfileViewController: UIViewController, ChangeLikesDelegate, ChangeViewsD
                 ac.addAction(okAction)
                 self?.present(ac, animated: true)
             }
-            self?.profileHeaderView.changeTitle(title: newTitle)
+//            self?.profileHeaderView.changeTitle(title: newTitle)
         }
         
         ac.addAction(okAction)
